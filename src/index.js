@@ -33,11 +33,26 @@ app.innerHTML = `
         border: 2px dashed #d2d5da;
         background: #f1f2f5;
     }
-</style>`;
 
-const init = () => { };
+.active {
+    background: #cbfff6;
+    border-color: #24b373;
+}    
+</style>
+`;
 
-console.dir(document.createElement('div'));
-if ('dragglble' in document.createElement('div')) {
+const init = () => {
+    const dropzone = document.querySelector('.dropzone');
+
+    dropzone.addEventListener('dragenter', (e) =>
+        e.target.classList.add('active')
+    );
+    dropzone.addEventListener('dragleave', (e) =>
+        e.target.classList.remove('active')
+    );
+};
+
+// console.dir(document.createElement('div'));
+if ('draggable' in document.createElement('div')) {
     init();
 }
