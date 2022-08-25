@@ -50,6 +50,11 @@ const init = () => {
     dropzone.addEventListener('dragleave', (e) =>
         e.target.classList.remove('active')
     );
+    dropzone.addEventListener('dragover', (e) => {
+        console.log('Dragging...');
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'copy';
+    });
 };
 
 // console.dir(document.createElement('div'));
