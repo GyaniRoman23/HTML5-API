@@ -51,10 +51,15 @@ const init = () => {
         e.target.classList.remove('active')
     );
     dropzone.addEventListener('dragover', (e) => {
-        console.log('Dragging...');
         e.preventDefault();
         e.dataTransfer.dropEffect = 'copy';
     });
+    dropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        e.target.classList.remove('active')
+        console.log('Drop')
+    })
 };
 
 // console.dir(document.createElement('div'));
